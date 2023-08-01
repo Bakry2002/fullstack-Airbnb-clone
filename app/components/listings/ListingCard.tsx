@@ -1,7 +1,6 @@
 'use client';
 
-import { Listing, Reservation } from '@prisma/client';
-import { SafeUser, safeListing } from '@/app/types';
+import { SafeReservation, SafeUser, safeListing } from '@/app/types';
 //?next
 import { useRouter } from 'next/navigation';
 //?custom hooks
@@ -9,13 +8,12 @@ import useCountries from '@/app/hooks/useCountries';
 import { useCallback, useMemo } from 'react';
 //?date-fns
 import { format } from 'date-fns';
-import Image from 'next/image';
 import HeartButton from '../HeartButton';
 import Button from '../Button';
 
 interface ListingCardProps {
     data: safeListing;
-    reservations?: Reservation;
+    reservation?: SafeReservation;
     onAction?: (id: string) => void;
     actionLabel?: string;
     actionId?: string;
@@ -25,7 +23,7 @@ interface ListingCardProps {
 
 const ListingCard: React.FC<ListingCardProps> = ({
     data,
-    reservations,
+    reservation,
     onAction,
     actionId,
     actionLabel,
@@ -56,24 +54,24 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
     // handle price for the reservation
     const price = useMemo(() => {
-        if (reservations) {
-            return reservations.totalPrice;
+        if (reservation) {
+            return reservation.totalPrice;
         }
 
         return data.price; // if there is no reservation, we return the price of the listing
-    }, [reservations, data.price]);
+    }, [reservation, data.price]);
 
     // reservation date
     const reservationDate = useMemo(() => {
-        if (!reservations) {
+        if (!reservation) {
             return null;
         }
 
-        const start = new Date(reservations.startDate);
-        const end = new Date(reservations.endDate);
+        const start = new Date(reservation.startDate);
+        const end = new Date(reservation.endDate);
 
         return `${format(start, 'PP')} - ${format(end, 'PP')}`;
-    }, [reservations]);
+    }, [reservation]);
     return (
         <div
             onClick={() => router.push(`/listings/${data.id}`)}
@@ -101,7 +99,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
             </div>
             <div className="flex flex-row items-center gap-1">
                 <div className="font-semibold">$ {price}</div>
-                {!reservations && <div className="font-light">/night</div>}
+                {!reservation && <div className="font-light">/night</div>}
             </div>
             {
                 // if there is a reservation, we show the cancel button

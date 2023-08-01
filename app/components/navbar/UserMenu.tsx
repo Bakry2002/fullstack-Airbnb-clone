@@ -15,12 +15,15 @@ import { signOut } from 'next-auth/react';
 //? types
 import { SafeUser } from '@/app/types';
 import useRentModal from '@/app/hooks/useRentModal';
+import { useRouter } from 'next/navigation';
+import { ro } from 'date-fns/locale';
 
 interface UserMenuProps {
     currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+    const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
 
     const registerModal = useRegisterModal(); // get the register modal from the store, to observe the state of the modal
@@ -67,17 +70,25 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     <div className="flex cursor-pointer flex-col">
                         {currentUser ? (
                             <>
-                                <MenuItem onClick={() => {}} label="My trips" />
                                 <MenuItem
+                                    label={`Welcome, ${currentUser?.name}`}
                                     onClick={() => {}}
+                                />
+                                <hr />
+                                <MenuItem
+                                    onClick={() => router.push('/trips')}
+                                    label="My trips"
+                                />
+                                <MenuItem
+                                    onClick={() => router.push('/favorites')}
                                     label="My favorites"
                                 />
                                 <MenuItem
-                                    onClick={() => {}}
+                                    onClick={() => router.push('/reservations')}
                                     label="My reservations"
                                 />
                                 <MenuItem
-                                    onClick={() => {}}
+                                    onClick={() => router.push('/properties')}
                                     label="My properties"
                                 />
                                 <MenuItem

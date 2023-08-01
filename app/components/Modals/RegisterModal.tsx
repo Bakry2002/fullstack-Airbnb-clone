@@ -45,8 +45,9 @@ const RegisterModal = () => {
         axios
             .post('/api/register', data) // send a post request to the server with the form data
             .then(() => {
-                registerModal.onClose(); // close the modal after the request is successful
                 toast.success('Registered successfully!');
+                registerModal.onClose(); // close the modal after the request is successful
+                loginModal.onOpen(); // open the login modal
             })
             .catch((err) => {
                 toast.error('Something went wrong!'); // show an error toast if the request failed

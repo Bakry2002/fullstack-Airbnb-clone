@@ -1,4 +1,4 @@
-import { User, Listing } from '@prisma/client';
+import { User, Listing, Reservation } from '@prisma/client';
 
 // this is the type of the user object that will be returned by getCurrentUser()
 export type SafeUser = Omit<
@@ -12,4 +12,14 @@ export type SafeUser = Omit<
 
 export type safeListing = Omit<Listing, 'createdAt'> & {
     createdAt: string;
+};
+
+export type SafeReservation = Omit<
+    Reservation,
+    'createdAt' | 'startDate' | 'endDate' | 'listing'
+> & {
+    createdAt: string;
+    startDate: string;
+    endDate: string;
+    listing: safeListing;
 };

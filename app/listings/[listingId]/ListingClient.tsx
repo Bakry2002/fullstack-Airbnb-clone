@@ -9,8 +9,7 @@ import ListingReservation from '@/app/components/listings/ListingReservation';
 //?custom hooks
 import useLoginModal from '@/app/hooks/useLoginModal';
 //? types
-import { SafeUser, safeListing } from '@/app/types';
-import { Reservation } from '@prisma/client';
+import { SafeReservation, SafeUser, safeListing } from '@/app/types';
 import { Range } from 'react-date-range';
 //? hooks
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -32,7 +31,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-    reservations?: Reservation[];
+    reservations?: SafeReservation[];
     listing: safeListing & { user: SafeUser };
     currentUser?: SafeUser | null;
 }
@@ -69,7 +68,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
             .then(() => {
                 toast.success('Reservation Booked successfully 👍.');
                 setDateRange(initialDateRange);
-                //TODO: redirect to /trips
+                router.push(`/trips`); // redirect the user to the trips page
                 router.refresh(); // refresh the page to get the new reservation
             })
             .catch((err) => {
