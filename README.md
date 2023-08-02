@@ -1,37 +1,34 @@
 ## Live Demo
-[airbnb-clone-eight-flame.vercel.app](https://airbnb-clone-eight-flame.vercel.app/)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[airbnb-clone-eight-flame.vercel.app](https://airbnb-clone-eight-flame.vercel.app/)
 
 ## Getting Started
 
 First, run the development server:
+- Download or clone the repository and open it with any IDE you have (e.g. vs code)
+- open the terminal and write npm install to install all the packages in your project directory
+- after that, in the terminal write npm run dev to host the project on your local server.
+- 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the demo of the project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
+Note that: 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Tools Used 
 
-To learn more about Next.js, take a look at the following resources:
+- Next 13, app router directory.
+- typeScript: main language used. 
+- Tailwind: CSS library to style the website 
+- Zustand: managing the state across the components   
+- Mongodb: database used to store the project data.
+- Prisma: ORM for the project.
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## libraries Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- axios: to make the HTTP requests.
+- bycrypt: used to crypt the password before sending it to the database for security purposes.
+- date-fns: for manipulating JavaScript dates in a browser & Node.js.
+- leaflet: an open-source JavaScript library for mobile-friendly interactive maps.
+- next-auth: Authentication for Next.js
+- cloudinary: Streamline media management and improve user experience by automatically delivering images and videos, enhanced and optimized for every user.
+- and many react libraries like (react-select, react-hook-form, react-icons, etc...).
