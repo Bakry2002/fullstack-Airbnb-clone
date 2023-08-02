@@ -6,8 +6,6 @@ interface IParams {
     listingId?: string;
 }
 
-// ==================== 7:53:40 ====================
-
 export async function DELETE(req: Request, { params }: { params: IParams }) {
     // get current user
     const currentUser = await getCurrentUser();
