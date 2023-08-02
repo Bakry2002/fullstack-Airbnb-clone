@@ -11,7 +11,7 @@
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the demo of the project.
 
 Note that: 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses the latest Next.js version 13.4 so, it runs on both client-side and server-side.
 
 ## Tools Used 
 
