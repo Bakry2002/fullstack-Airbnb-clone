@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { list } from 'postcss';
 import getListings, { IListingsParams } from './actions/getListings';
 import ClientOnly from './components/ClientOnly';
