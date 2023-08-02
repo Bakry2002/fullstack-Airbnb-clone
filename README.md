@@ -4,7 +4,6 @@
 
 ## Getting Started
 
-First, run the development server:
 - Download or clone the repository and open it with any IDE you have (e.g. vs code)
 - open the terminal and write npm install to install all the packages in your project directory
 - after that, in the terminal write npm run dev to host the project on your local server.
